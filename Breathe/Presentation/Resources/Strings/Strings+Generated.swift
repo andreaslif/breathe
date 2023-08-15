@@ -10,6 +10,18 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Copy {
+  internal enum HomeView {
+    /// Exhale
+    internal static let exhaling = Copy.tr("Localizable", "HomeView.exhaling", fallback: "Exhale")
+    /// Inhale
+    internal static let inhaling = Copy.tr("Localizable", "HomeView.inhaling", fallback: "Inhale")
+    /// Start
+    internal static let start = Copy.tr("Localizable", "HomeView.start", fallback: "Start")
+    /// Stop
+    internal static let stop = Copy.tr("Localizable", "HomeView.stop", fallback: "Stop")
+    /// Take a break
+    internal static let stopped = Copy.tr("Localizable", "HomeView.stopped", fallback: "Take a break")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

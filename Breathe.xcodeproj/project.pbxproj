@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E182D83C2A8C18EA00EBE108 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182D83B2A8C18EA00EBE108 /* View+.swift */; };
 		E187DA3C2A8BA99000400A5E /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = E187DA3B2A8BA99000400A5E /* swiftgen.yml */; };
 		E187DA412A8BAAAC00400A5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E187DA432A8BAAAC00400A5E /* Localizable.strings */; };
 		E187DA462A8BABC100400A5E /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187DA452A8BABC100400A5E /* Strings+Generated.swift */; };
 		E187DA482A8BAEB500400A5E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187DA472A8BAEB500400A5E /* HomeViewModel.swift */; };
+		E187DA4C2A8BB7B800400A5E /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187DA4B2A8BB7B800400A5E /* BubbleView.swift */; };
+		E187DA4E2A8BB7BF00400A5E /* BubbleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187DA4D2A8BB7BF00400A5E /* BubbleViewModel.swift */; };
+		E187DA502A8BB7CD00400A5E /* BreathingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187DA4F2A8BB7CD00400A5E /* BreathingState.swift */; };
 		E1AE15622A8BA894002AFC23 /* BreatheApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE15612A8BA894002AFC23 /* BreatheApp.swift */; };
 		E1AE15642A8BA894002AFC23 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE15632A8BA894002AFC23 /* HomeView.swift */; };
 		E1AE15662A8BA895002AFC23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AE15652A8BA895002AFC23 /* Assets.xcassets */; };
@@ -38,10 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E182D83B2A8C18EA00EBE108 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		E187DA3B2A8BA99000400A5E /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		E187DA422A8BAAAC00400A5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E187DA452A8BABC100400A5E /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		E187DA472A8BAEB500400A5E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E187DA4B2A8BB7B800400A5E /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		E187DA4D2A8BB7BF00400A5E /* BubbleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleViewModel.swift; sourceTree = "<group>"; };
+		E187DA4F2A8BB7CD00400A5E /* BreathingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingState.swift; sourceTree = "<group>"; };
 		E1AE155E2A8BA894002AFC23 /* Breathe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breathe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AE15612A8BA894002AFC23 /* BreatheApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheApp.swift; sourceTree = "<group>"; };
 		E1AE15632A8BA894002AFC23 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -80,13 +88,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E182D83A2A8C18E200EBE108 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E182D83B2A8C18EA00EBE108 /* View+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E187DA442A8BAB9B00400A5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E1AE158E2A8BA918002AFC23 /* Views */,
 				E1AE158D2A8BA911002AFC23 /* Strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E187DA492A8BB79300400A5E /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				E1AE15632A8BA894002AFC23 /* HomeView.swift */,
+				E187DA472A8BAEB500400A5E /* HomeViewModel.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		E187DA4A2A8BB7A200400A5E /* BubbleView */ = {
+			isa = PBXGroup;
+			children = (
+				E187DA4B2A8BB7B800400A5E /* BubbleView.swift */,
+				E187DA4D2A8BB7BF00400A5E /* BubbleViewModel.swift */,
+			);
+			path = BubbleView;
 			sourceTree = "<group>";
 		};
 		E1AE15552A8BA894002AFC23 = {
@@ -149,6 +182,9 @@
 		E1AE158C2A8BA90B002AFC23 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E187DA4F2A8BB7CD00400A5E /* BreathingState.swift */,
+				E182D83A2A8C18E200EBE108 /* Extensions */,
+				E1AE158E2A8BA918002AFC23 /* Views */,
 				E187DA442A8BAB9B00400A5E /* Resources */,
 				E1AE15652A8BA895002AFC23 /* Assets.xcassets */,
 			);
@@ -167,8 +203,8 @@
 		E1AE158E2A8BA918002AFC23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E1AE15632A8BA894002AFC23 /* HomeView.swift */,
-				E187DA472A8BAEB500400A5E /* HomeViewModel.swift */,
+				E187DA4A2A8BB7A200400A5E /* BubbleView */,
+				E187DA492A8BB79300400A5E /* HomeView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,7 +342,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1AE15642A8BA894002AFC23 /* HomeView.swift in Sources */,
+				E187DA4E2A8BB7BF00400A5E /* BubbleViewModel.swift in Sources */,
+				E187DA4C2A8BB7B800400A5E /* BubbleView.swift in Sources */,
 				E1AE15622A8BA894002AFC23 /* BreatheApp.swift in Sources */,
+				E182D83C2A8C18EA00EBE108 /* View+.swift in Sources */,
+				E187DA502A8BB7CD00400A5E /* BreathingState.swift in Sources */,
 				E187DA462A8BABC100400A5E /* Strings+Generated.swift in Sources */,
 				E187DA482A8BAEB500400A5E /* HomeViewModel.swift in Sources */,
 			);

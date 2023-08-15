@@ -1,1 +1,6 @@
-
+// HomeView
+"HomeView.start" = "Start";
+"HomeView.stop" = "Stop";
+"HomeView.stopped" = "Take a break";
+"HomeView.inhaling" = "Inhale";
+"HomeView.exhaling" = "Exhale";
