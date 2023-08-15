@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  Breathe
 //
 //  Created by Andreas Lif on 2023-08-15.
@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
+    @StateObject var vm = HomeViewModel()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,6 +23,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }
