@@ -26,6 +26,21 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    var backgroundOpacity: Double {
+        switch state {
+        case .stopped:
+            return 0.4
+        case .initial:
+            return 0.4
+        case .inhaling:
+            return 0.6
+        case .holding:
+            return 0.6
+        case .exhaling:
+            return 0.4
+        }
+    }
+    
     var buttonText: String {
         switch state {
         case .stopped:

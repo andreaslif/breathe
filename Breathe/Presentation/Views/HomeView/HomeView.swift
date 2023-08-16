@@ -44,8 +44,9 @@ struct HomeView: View {
 
 extension HomeView {
     @ViewBuilder func background() -> some View {
-        Color.teal.opacity(0.4)
+        Color.teal.opacity(vm.backgroundOpacity)
             .edgesIgnoringSafeArea(.all)
+            .animation(.easeInOut(duration: vm.state.duration), value: vm.state)
     }
 }
 
