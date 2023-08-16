@@ -19,9 +19,9 @@ class BubbleViewModel: ObservableObject {
         case .initial:
             return 0.25
         case .inhaling:
-            return 1
+            return 0.75
         case .holding:
-            return 1
+            return 0.75
         case .exhaling:
             return 0.25
         }
