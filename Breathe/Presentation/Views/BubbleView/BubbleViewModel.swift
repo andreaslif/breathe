@@ -27,18 +27,18 @@ class BubbleViewModel: ObservableObject {
         }
     }
 
-    func size(for state: BreathingState) -> CGFloat {
+    func scale(for state: BreathingState) -> CGFloat {
         switch state {
         case .stopped:
-            return 100
+            return 0.3
         case .initial:
-            return 50
+            return 0.15
         case .inhaling:
-            return 350
+            return 1
         case .holding:
-            return 350
+            return 1
         case .exhaling:
-            return 50
+            return 0.15
         }
     }
 

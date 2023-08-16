@@ -19,17 +19,16 @@ struct BubbleView: View {
                         vm.backgroundColor
                             .opacity(vm.backgroundOpacity(for: state))
                     )
-                    .frame(maxWidth: vm.size(for: state))
+                    .scaleEffect(vm.scale(for: state))
             }
         }
         .animation(.easeInOut(duration: state.duration), value: state)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct BubbleView_Previews: PreviewProvider {
     static var previews: some View {
         BubbleView(state: .constant(.inhaling))
+            .frame(maxWidth: 300)
     }
 }
