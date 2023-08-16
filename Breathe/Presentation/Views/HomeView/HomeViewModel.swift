@@ -13,7 +13,7 @@ class HomeViewModel: ObservableObject {
     @Published var repeatMode: RepeatMode = .finite
     @Published var isContinuousOn = false
     @Published var exerciseCount: Int = 0
-    @Published var numberOfRepetitions: Int = 5
+    @Published var numberOfRepetitions: Int = 10
     
     /// In order to display the correct number of exercises remaining,
     /// while also closing the `BubbleView`at the correct time when the last exercise finishes,
@@ -36,13 +36,8 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    var testOpacity: Double {
-        switch state {
-        case .stopped:
-            return 1
-        default:
-            return 0
-        }
+    var configViewOpacity: Double {
+        state == .stopped ? 1 : 0
     }
     
     var countdownOpacity: Double {
@@ -61,6 +56,15 @@ class HomeViewModel: ObservableObject {
             return 0.6
         case .exhaling:
             return 0.4
+        }
+    }
+    
+    var exerciseButtonBackgroundColor: Color {
+        switch state {
+        case .stopped:
+            return .pink.opacity(0.7)
+        default:
+            return Color.black.opacity(0.5)
         }
     }
     

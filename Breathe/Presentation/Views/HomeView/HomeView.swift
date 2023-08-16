@@ -14,11 +14,15 @@ struct HomeView: View {
         ZStack {
             background()
             
-            BubbleView(state: $vm.state)
+            CircularPatternView(totalSteps: vm.numberOfRepetitions, size: 300, numberOfStepsToShow: $vm.exerciseCount)
+                .opacity(vm.countdownOpacity)
+                .animation(.easeInOut(duration: 1), value: vm.state)
             
-            ConfigView(repeatMode: $vm.repeatMode,
-                       numberOfRepetitions: $vm.numberOfRepetitions)
-                .opacity(vm.testOpacity)
+            BubbleView(state: $vm.state)
+                .padding(16)
+            
+            ConfigView(repeatMode: $vm.repeatMode, numberOfRepetitions: $vm.numberOfRepetitions)
+                .opacity(vm.configViewOpacity)
                 .animation(.easeInOut(duration: 1), value: vm.state)
                 .animation(.easeInOut(duration: 0.25), value: vm.repeatMode)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -37,7 +41,7 @@ struct HomeView: View {
                 Button(action: vm.toggleExercise) {
                     ZStack {
                         Capsule(style: .continuous)
-                            .foregroundStyle(Color.black.opacity(0.5))
+                            .foregroundStyle(vm.exerciseButtonBackgroundColor)
                         Text(vm.buttonText)
                             .foregroundStyle(Color.white)
                     }
