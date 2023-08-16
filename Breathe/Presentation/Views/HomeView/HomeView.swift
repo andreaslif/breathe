@@ -16,10 +16,19 @@ struct HomeView: View {
             
             BubbleView(state: $vm.state)
             
+            ConfigView(repeatMode: $vm.repeatMode,
+                       numberOfRepetitions: $vm.numberOfRepetitions)
+                .opacity(vm.testOpacity)
+                .animation(.easeInOut(duration: 1), value: vm.state)
+                .animation(.easeInOut(duration: 0.25), value: vm.repeatMode)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(16)
+                .edgesIgnoringSafeArea(.all)
+            
             VStack(spacing: .zero) {
                 Text(vm.instructions)
-                    .font(.title2)
-                    .foregroundStyle(Color.black)
+                    .font(.title2.bold())
+                    .foregroundStyle(Color.black.opacity(0.6))
                     .padding(.top, 100)
                     .animation(.easeInOut(duration: 1), value: vm.instructions)
                 

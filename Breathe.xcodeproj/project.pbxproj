@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E182D83C2A8C18EA00EBE108 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182D83B2A8C18EA00EBE108 /* View+.swift */; };
+		E182D83F2A8CF3A200EBE108 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182D83E2A8CF3A200EBE108 /* ConfigView.swift */; };
+		E182D8432A8CF41C00EBE108 /* RepeatMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182D8422A8CF41C00EBE108 /* RepeatMode.swift */; };
 		E187DA3C2A8BA99000400A5E /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = E187DA3B2A8BA99000400A5E /* swiftgen.yml */; };
 		E187DA412A8BAAAC00400A5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E187DA432A8BAAAC00400A5E /* Localizable.strings */; };
 		E187DA462A8BABC100400A5E /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187DA452A8BABC100400A5E /* Strings+Generated.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		E182D83B2A8C18EA00EBE108 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		E182D83E2A8CF3A200EBE108 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
+		E182D8422A8CF41C00EBE108 /* RepeatMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatMode.swift; sourceTree = "<group>"; };
 		E187DA3B2A8BA99000400A5E /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		E187DA422A8BAAAC00400A5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E187DA452A8BABC100400A5E /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
@@ -94,6 +98,14 @@
 				E182D83B2A8C18EA00EBE108 /* View+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E182D83D2A8CF39700EBE108 /* ConfigView */ = {
+			isa = PBXGroup;
+			children = (
+				E182D83E2A8CF3A200EBE108 /* ConfigView.swift */,
+			);
+			path = ConfigView;
 			sourceTree = "<group>";
 		};
 		E187DA442A8BAB9B00400A5E /* Resources */ = {
@@ -183,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				E187DA4F2A8BB7CD00400A5E /* BreathingState.swift */,
+				E182D8422A8CF41C00EBE108 /* RepeatMode.swift */,
 				E182D83A2A8C18E200EBE108 /* Extensions */,
 				E1AE158E2A8BA918002AFC23 /* Views */,
 				E187DA442A8BAB9B00400A5E /* Resources */,
@@ -203,6 +216,7 @@
 		E1AE158E2A8BA918002AFC23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E182D83D2A8CF39700EBE108 /* ConfigView */,
 				E187DA4A2A8BB7A200400A5E /* BubbleView */,
 				E187DA492A8BB79300400A5E /* HomeView */,
 			);
@@ -343,7 +357,9 @@
 			files = (
 				E1AE15642A8BA894002AFC23 /* HomeView.swift in Sources */,
 				E187DA4E2A8BB7BF00400A5E /* BubbleViewModel.swift in Sources */,
+				E182D8432A8CF41C00EBE108 /* RepeatMode.swift in Sources */,
 				E187DA4C2A8BB7B800400A5E /* BubbleView.swift in Sources */,
+				E182D83F2A8CF3A200EBE108 /* ConfigView.swift in Sources */,
 				E1AE15622A8BA894002AFC23 /* BreatheApp.swift in Sources */,
 				E182D83C2A8C18EA00EBE108 /* View+.swift in Sources */,
 				E187DA502A8BB7CD00400A5E /* BreathingState.swift in Sources */,

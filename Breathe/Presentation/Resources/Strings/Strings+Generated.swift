@@ -10,6 +10,14 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Copy {
+  internal enum ConfigView {
+    /// Exercise will repeat
+    internal static let exerciseText = Copy.tr("Localizable", "ConfigView.exerciseText", fallback: "Exercise will repeat")
+    /// indefinitely
+    internal static let indefinitely = Copy.tr("Localizable", "ConfigView.indefinitely", fallback: "indefinitely")
+    /// times
+    internal static let times = Copy.tr("Localizable", "ConfigView.times", fallback: "times")
+  }
   internal enum HomeView {
     /// Exhale
     internal static let exhaling = Copy.tr("Localizable", "HomeView.exhaling", fallback: "Exhale")
@@ -21,6 +29,12 @@ internal enum Copy {
     internal static let stop = Copy.tr("Localizable", "HomeView.stop", fallback: "Stop")
     /// Take a break
     internal static let stopped = Copy.tr("Localizable", "HomeView.stopped", fallback: "Take a break")
+  }
+  internal enum RepeatMode {
+    /// Counting
+    internal static let finite = Copy.tr("Localizable", "RepeatMode.finite", fallback: "Counting")
+    /// Continuous
+    internal static let infinite = Copy.tr("Localizable", "RepeatMode.infinite", fallback: "Continuous")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

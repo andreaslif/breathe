@@ -4,3 +4,12 @@
 "HomeView.stopped" = "Take a break";
 "HomeView.inhaling" = "Inhale";
 "HomeView.exhaling" = "Exhale";
+
+// RepeatMode
+"RepeatMode.finite" = "Counting";
+"RepeatMode.infinite" = "Continuous";
+
+// ConfigView
+"ConfigView.exerciseText" = "Exercise will repeat";
+"ConfigView.indefinitely" = "indefinitely";
+"ConfigView.times" = "times";

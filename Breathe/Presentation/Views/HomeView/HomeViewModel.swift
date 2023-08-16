@@ -10,6 +10,16 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     @Published var state: BreathingState = .stopped
+    @Published var repeatMode: RepeatMode = .finite
+    @Published var isContinuousOn = false
+    @Published var exerciseCount: Int = 0
+    @Published var numberOfRepetitions: Int = 5
+    
+    /// In order to display the correct number of exercises remaining,
+    /// while also closing the `BubbleView`at the correct time when the last exercise finishes,
+    /// we use this flag to skip the first decrementation of the `exerciseCount`.
+    var isFirstExerciseCountDecrement = true
+    var stateChangeTimer: Timer?
     
     var instructions: String {
         switch state {
@@ -24,6 +34,19 @@ class HomeViewModel: ObservableObject {
         case .exhaling:
             return Copy.HomeView.exhaling
         }
+    }
+    
+    var testOpacity: Double {
+        switch state {
+        case .stopped:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
+    var countdownOpacity: Double {
+        (repeatMode == .finite && state != .stopped) ? 1 : 0
     }
     
     var backgroundOpacity: Double {
@@ -53,24 +76,61 @@ class HomeViewModel: ObservableObject {
     func toggleExercise() {
         switch state {
         case .stopped:
-            state = .initial
-            scheduleStateChange()
+            startExercise()
         default:
-            state = .stopped
+            stopExercise()
         }
     }
     
+}
+
+// MARK: - Private Functions
+
+private extension HomeViewModel {
+    
+    func startExercise() {
+        resetExerciseCount()
+        state = .initial
+        scheduleStateChange()
+    }
+    
+    func resetExerciseCount() {
+        exerciseCount = numberOfRepetitions
+    }
+    
+    func stopExercise() {
+        state = .stopped
+        resetStateChangeTimer()
+        resetInitialConditions()
+    }
+    
+    func resetStateChangeTimer() {
+        stateChangeTimer?.invalidate()
+        stateChangeTimer = nil
+    }
+    
+    func resetInitialConditions() {
+        isFirstExerciseCountDecrement = true
+    }
+    
     func scheduleStateChange() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + state.duration) { [weak self] in
-            guard let self,
-                  state != .stopped else { return }
-            
-            self.setNextState()
-            
-            guard state != .stopped else { return }
-            
-            self.scheduleStateChange()
-        }
+        stateChangeTimer = Timer.scheduledTimer(
+            timeInterval: state.duration,
+            target: self,
+            selector: #selector(handleStateIncrementation),
+            userInfo: nil,
+            repeats: false)
+    }
+    
+    @objc func handleStateIncrementation() {
+        guard state != .stopped else { return }
+        
+        setNextState()
+        handleExerciseCount()
+        
+        guard state != .stopped else { return }
+        
+        scheduleStateChange()
     }
     
     func setNextState() {
@@ -81,4 +141,20 @@ class HomeViewModel: ObservableObject {
             state = .inhaling
         }
     }
+    
+    func handleExerciseCount() {
+        guard repeatMode == .finite else { return }
+        
+        guard !isFirstExerciseCountDecrement else {
+            isFirstExerciseCountDecrement = false
+            return
+        }
+        
+        if state == .inhaling {
+            exerciseCount -= 1
+            
+            if exerciseCount == 0 { stopExercise() }
+        }
+    }
+    
 }
