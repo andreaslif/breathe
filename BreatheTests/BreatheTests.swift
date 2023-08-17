@@ -10,10 +10,5 @@ import XCTest
 
 final class BreatheTests: XCTestCase {
 
-    func testSomething() {
-        let vm = HomeViewModel()
-        vm.repeatMode = .finite
-        vm.numberOfRepetitions = 5
-    }
     
 }
