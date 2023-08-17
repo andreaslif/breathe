@@ -39,7 +39,6 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    //TODO: test input/output of this without needing a view
     var configViewOpacity: Double {
         state == .stopped ? 1 : 0
     }
