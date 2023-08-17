@@ -10,7 +10,7 @@ import Foundation
 public struct SetNumberOfRepetitionsUseCase {
     var exerciseManager: ExerciseManager = .shared
     
-    public init() { }
+    public init() {}
     
     public func execute(with numberOfRepetitions: Int) {
         exerciseManager.numberOfRepetitions = numberOfRepetitions

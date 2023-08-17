@@ -21,7 +21,7 @@
 		E1AE15642A8BA894002AFC23 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE15632A8BA894002AFC23 /* HomeView.swift */; };
 		E1AE15662A8BA895002AFC23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AE15652A8BA895002AFC23 /* Assets.xcassets */; };
 		E1AE156A2A8BA895002AFC23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AE15692A8BA895002AFC23 /* Preview Assets.xcassets */; };
-		E1AE15742A8BA895002AFC23 /* BreatheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE15732A8BA895002AFC23 /* BreatheTests.swift */; };
+		E1AE15742A8BA895002AFC23 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE15732A8BA895002AFC23 /* HomeViewModelTests.swift */; };
 		E1AE157E2A8BA895002AFC23 /* BreatheUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE157D2A8BA895002AFC23 /* BreatheUITests.swift */; };
 		E1AE15802A8BA895002AFC23 /* BreatheUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE157F2A8BA895002AFC23 /* BreatheUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -61,7 +61,7 @@
 		E1AE15672A8BA895002AFC23 /* Breathe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Breathe.entitlements; sourceTree = "<group>"; };
 		E1AE15692A8BA895002AFC23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E1AE156F2A8BA895002AFC23 /* BreatheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreatheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1AE15732A8BA895002AFC23 /* BreatheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheTests.swift; sourceTree = "<group>"; };
+		E1AE15732A8BA895002AFC23 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		E1AE15792A8BA895002AFC23 /* BreatheUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreatheUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AE157D2A8BA895002AFC23 /* BreatheUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheUITests.swift; sourceTree = "<group>"; };
 		E1AE157F2A8BA895002AFC23 /* BreatheUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		E1AE15722A8BA895002AFC23 /* BreatheTests */ = {
 			isa = PBXGroup;
 			children = (
-				E1AE15732A8BA895002AFC23 /* BreatheTests.swift */,
+				E1AE15732A8BA895002AFC23 /* HomeViewModelTests.swift */,
 			);
 			path = BreatheTests;
 			sourceTree = "<group>";
@@ -367,7 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1AE15742A8BA895002AFC23 /* BreatheTests.swift in Sources */,
+				E1AE15742A8BA895002AFC23 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
