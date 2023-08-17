@@ -30,16 +30,22 @@ class ExerciseManager: ObservableObject {
         scheduleStateChange()
     }
     
-    func resetExerciseCount() {
-        repetitionCount = numberOfRepetitions
-    }
-    
     func stopExercise() {
         state = .stopped
         stateChangeTimer = nil
         resetInitialConditions()
     }
 
+}
+
+// MARK: - Private Functions
+
+private extension ExerciseManager {
+    
+    func resetExerciseCount() {
+        repetitionCount = numberOfRepetitions
+    }
+    
     func resetInitialConditions() {
         isFirstExerciseCountDecrement = true
     }
@@ -64,7 +70,6 @@ class ExerciseManager: ObservableObject {
         scheduleStateChange()
     }
     
-    // TODO: Test HomeViewModel state changes, circles disappear correctly etc.
     func handleExerciseCount() {
         guard repeatMode == .finite else { return }
         
