@@ -32,7 +32,7 @@ struct HomeView: View {
             VStack(spacing: .zero) {
                 Text(vm.instructions)
                     .font(.title2.bold())
-                    .foregroundStyle(Color.black.opacity(0.6))
+                    .foregroundStyle(Color.grayOne)
                     .padding(.top, 100)
                     .animation(.easeInOut(duration: 1), value: vm.instructions)
                 
@@ -57,9 +57,13 @@ struct HomeView: View {
 
 extension HomeView {
     @ViewBuilder func background() -> some View {
-        Color.teal.opacity(vm.backgroundOpacity)
+        Color.backgroundOne
             .edgesIgnoringSafeArea(.all)
-            .animation(.easeInOut(duration: vm.state.duration), value: vm.state)
+            .overlay {
+                Color.teal.opacity(vm.backgroundOpacity)
+                    .edgesIgnoringSafeArea(.all)
+                    .animation(.easeInOut(duration: vm.state.duration), value: vm.state)
+            }
     }
 }
 

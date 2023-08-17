@@ -29,7 +29,7 @@ struct ConfigView: View {
                          : Copy.ConfigView.indefinitely)
                         .font(.title2)
                         .bold()
-                        .foregroundStyle(Color.black.opacity(0.6))
+                        .foregroundStyle(Color.grayOne)
                     Stepper("", value: $numberOfRepetitions)
                         .opacity(repeatMode == .finite ? 1 : 0)
                 }

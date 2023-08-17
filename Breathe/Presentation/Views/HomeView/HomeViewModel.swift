@@ -47,24 +47,24 @@ class HomeViewModel: ObservableObject {
     var backgroundOpacity: Double {
         switch state {
         case .stopped:
-            return 0.4
+            return 0
         case .initial:
-            return 0.4
+            return 0
         case .inhaling:
-            return 0.6
+            return 0.2
         case .holding:
-            return 0.6
+            return 0.2
         case .exhaling:
-            return 0.4
+            return 0
         }
     }
     
     var exerciseButtonBackgroundColor: Color {
         switch state {
         case .stopped:
-            return .pink.opacity(0.7)
+            return .accentOne
         default:
-            return Color.black.opacity(0.5)
+            return Color.blackWhite.opacity(0.5)
         }
     }
     
