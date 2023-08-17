@@ -15,7 +15,7 @@ struct HomeView: View {
         ZStack {
             background()
             
-            CircularPatternView(totalSteps: vm.numberOfRepetitions, size: 300, numberOfStepsToShow: $vm.exerciseCount)
+            CircularPatternView(totalSteps: vm.numberOfRepetitions, size: 300, numberOfStepsToShow: $vm.repetitionCount)
                 .opacity(vm.countdownOpacity)
                 .animation(.easeInOut(duration: 1), value: vm.state)
             

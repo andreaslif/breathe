@@ -5,6 +5,7 @@
 //  Created by Andreas Lif on 2023-08-16.
 //
 
+import Domain
 import SwiftUI
 
 struct ConfigView: View {
@@ -44,6 +45,15 @@ struct ConfigView: View {
 private extension RepeatMode {
     var repeatModeOpacity: Double {
         self == .finite ? 1 : 0
+    }
+    
+    var title: String {
+        switch self {
+        case .finite:
+            return Copy.RepeatMode.finite
+        case .infinite:
+            return Copy.RepeatMode.infinite
+        }
     }
 }
 

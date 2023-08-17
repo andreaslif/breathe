@@ -10,7 +10,6 @@
 		E10029572A8EA6EB00B7141A /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = E10029562A8EA6EB00B7141A /* Domain */; };
 		E182D83C2A8C18EA00EBE108 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182D83B2A8C18EA00EBE108 /* View+.swift */; };
 		E182D83F2A8CF3A200EBE108 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182D83E2A8CF3A200EBE108 /* ConfigView.swift */; };
-		E182D8432A8CF41C00EBE108 /* RepeatMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182D8422A8CF41C00EBE108 /* RepeatMode.swift */; };
 		E182D8472A8D658700EBE108 /* CircularPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182D8462A8D658700EBE108 /* CircularPatternView.swift */; };
 		E182D8492A8E287B00EBE108 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182D8482A8E287B00EBE108 /* Color+.swift */; };
 		E187DA3C2A8BA99000400A5E /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = E187DA3B2A8BA99000400A5E /* swiftgen.yml */; };
@@ -48,7 +47,6 @@
 		E10029552A8EA6DD00B7141A /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = Breathe/Domain; sourceTree = "<group>"; };
 		E182D83B2A8C18EA00EBE108 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		E182D83E2A8CF3A200EBE108 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
-		E182D8422A8CF41C00EBE108 /* RepeatMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatMode.swift; sourceTree = "<group>"; };
 		E182D8462A8D658700EBE108 /* CircularPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularPatternView.swift; sourceTree = "<group>"; };
 		E182D8482A8E287B00EBE108 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		E187DA3B2A8BA99000400A5E /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
@@ -190,7 +188,6 @@
 		E1AE158C2A8BA90B002AFC23 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				E182D8422A8CF41C00EBE108 /* RepeatMode.swift */,
 				E182D83A2A8C18E200EBE108 /* Extensions */,
 				E1AE158E2A8BA918002AFC23 /* Views */,
 				E187DA442A8BAB9B00400A5E /* Resources */,
@@ -356,7 +353,6 @@
 			files = (
 				E1AE15642A8BA894002AFC23 /* HomeView.swift in Sources */,
 				E182D8492A8E287B00EBE108 /* Color+.swift in Sources */,
-				E182D8432A8CF41C00EBE108 /* RepeatMode.swift in Sources */,
 				E187DA4C2A8BB7B800400A5E /* BubbleView.swift in Sources */,
 				E182D83F2A8CF3A200EBE108 /* ConfigView.swift in Sources */,
 				E1AE15622A8BA894002AFC23 /* BreatheApp.swift in Sources */,

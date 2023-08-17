@@ -5,23 +5,24 @@
 //  Created by Andreas Lif on 2023-08-15.
 //
 
+import Combine
 import Domain
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
     @Published var state: BreathingState = .stopped
     @Published var repeatMode: RepeatMode = .finite
-    @Published var isContinuousOn = false
-    @Published var exerciseCount: Int = 0
+    @Published var repetitionCount: Int = 0
     @Published var numberOfRepetitions: Int = 10
     
-    /// In order to display the correct number of exercises remaining,
-    /// while also closing the `BubbleView`at the correct time when the last exercise finishes,
-    /// we use this flag to skip the first decrementation of the `exerciseCount`.
-    private var isFirstExerciseCountDecrement = true
-    private var stateChangeTimer: Timer? {
-        willSet { stateChangeTimer?.invalidate() }
-    }
+    private var cancellables = Set<AnyCancellable>()
+    
+    private let subscribeToBreathingStateUseCase = SubscribeToBreathingStateUseCase()
+    private let subscribeToRepetitionCountUseCase = SubscribeToRepetitionCountUseCase()
+    private let startExerciseUseCase = StartExerciseUseCase()
+    private let stopExerciseUseCase = StopExerciseUseCase()
+    private let setNumberOfRepetitionsUseCase = SetNumberOfRepetitionsUseCase()
+    private let setRepeatModeUseCase = SetRepeatModeUseCase()
     
     var instructions: String {
         switch state {
@@ -37,6 +38,7 @@ class HomeViewModel: ObservableObject {
             return Copy.HomeView.exhaling
         }
     }
+    
     //TODO: test input/output of this without needing a view
     var configViewOpacity: Double {
         state == .stopped ? 1 : 0
@@ -58,70 +60,31 @@ class HomeViewModel: ObservableObject {
         state == .stopped ? Copy.HomeView.start : Copy.HomeView.stop
     }
     
+    init() {
+        subscribeToBreathingStateUseCase.execute()
+            .assign(to: &$state)
+        
+        subscribeToRepetitionCountUseCase.execute()
+            .assign(to: &$repetitionCount)
+        
+        $numberOfRepetitions
+            .sink { self.setNumberOfRepetitionsUseCase.execute(with: $0) }
+            .store(in: &cancellables)
+        
+        $repeatMode
+            .sink { self.setRepeatModeUseCase.execute(with: $0) }
+            .store(in: &cancellables)
+    }
+    
+    deinit {
+        cancellables.forEach { $0.cancel() }
+        cancellables.removeAll()
+    }
+    
     func toggleExercise() {
-        state == .stopped ? startExercise() : stopExercise()
-    }
-    
-}
-
-// MARK: - Private Functions
-
-private extension HomeViewModel {
-    
-    func startExercise() {
-        resetExerciseCount()
-        state = .initial
-        scheduleStateChange()
-    }
-    
-    func resetExerciseCount() {
-        exerciseCount = numberOfRepetitions
-    }
-    
-    func stopExercise() {
-        state = .stopped
-        stateChangeTimer = nil
-        resetInitialConditions()
-    }
-
-    func resetInitialConditions() {
-        isFirstExerciseCountDecrement = true
-    }
-    
-    func scheduleStateChange() {
-        stateChangeTimer = Timer.scheduledTimer(
-            timeInterval: state.duration,
-            target: self,
-            selector: #selector(handleStateIncrementation),
-            userInfo: nil,
-            repeats: false)
-    }
-    
-    @objc func handleStateIncrementation() {
-        guard state != .stopped else { return }
-        
-        state = state.nextState
-        handleExerciseCount()
-        
-        guard state != .stopped else { return }
-        
-        scheduleStateChange()
-    }
-    
-    // TODO: Test HomeViewModel state changes, circles disappear correctly etc.
-    func handleExerciseCount() {
-        guard repeatMode == .finite else { return }
-        
-        guard !isFirstExerciseCountDecrement else {
-            isFirstExerciseCountDecrement = false
-            return
-        }
-        
-        if state == .inhaling {
-            exerciseCount -= 1
-            
-            if exerciseCount == 0 { stopExercise() }
-        }
+        state == .stopped
+        ? startExerciseUseCase.execute()
+        : stopExerciseUseCase.execute()
     }
     
 }
