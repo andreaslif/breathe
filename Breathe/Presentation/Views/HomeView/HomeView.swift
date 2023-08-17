@@ -5,6 +5,7 @@
 //  Created by Andreas Lif on 2023-08-15.
 //
 
+import Domain
 import SwiftUI
 
 struct HomeView: View {

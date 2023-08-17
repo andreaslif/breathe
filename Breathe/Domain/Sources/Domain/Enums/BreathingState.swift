@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum BreathingState: Int, Equatable, CaseIterable {
+public enum BreathingState: Int, Equatable, CaseIterable {
     case stopped = 0
     case initial
     case inhaling
     case holding
     case exhaling
     
-    var duration: Double {
+    public var duration: Double {
         switch self {
         case .stopped:
             return 0.5
@@ -27,5 +27,12 @@ enum BreathingState: Int, Equatable, CaseIterable {
         case .exhaling:
             return 6
         }
+    }
+    
+    public var nextState: BreathingState {
+        guard let next = BreathingState(rawValue: self.rawValue + 1)
+        else { return .inhaling }
+        
+        return next
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Andreas Lif on 2023-08-15.
 //
 
-import Foundation
+import Domain
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
@@ -18,8 +18,10 @@ class HomeViewModel: ObservableObject {
     /// In order to display the correct number of exercises remaining,
     /// while also closing the `BubbleView`at the correct time when the last exercise finishes,
     /// we use this flag to skip the first decrementation of the `exerciseCount`.
-    var isFirstExerciseCountDecrement = true
-    var stateChangeTimer: Timer?
+    private var isFirstExerciseCountDecrement = true
+    private var stateChangeTimer: Timer? {
+        willSet { stateChangeTimer?.invalidate() }
+    }
     
     var instructions: String {
         switch state {
@@ -35,7 +37,7 @@ class HomeViewModel: ObservableObject {
             return Copy.HomeView.exhaling
         }
     }
-    
+    //TODO: test input/output of this without needing a view
     var configViewOpacity: Double {
         state == .stopped ? 1 : 0
     }
@@ -45,45 +47,19 @@ class HomeViewModel: ObservableObject {
     }
     
     var backgroundOpacity: Double {
-        switch state {
-        case .stopped:
-            return 0
-        case .initial:
-            return 0
-        case .inhaling:
-            return 0.2
-        case .holding:
-            return 0.2
-        case .exhaling:
-            return 0
-        }
+        (state == .inhaling || state == .holding) ? 0.2 : 0
     }
     
     var exerciseButtonBackgroundColor: Color {
-        switch state {
-        case .stopped:
-            return .accentOne
-        default:
-            return Color.blackWhite.opacity(0.5)
-        }
+        state == .stopped ? .accentOne : Color.blackWhite.opacity(0.5)
     }
     
     var buttonText: String {
-        switch state {
-        case .stopped:
-            return Copy.HomeView.start
-        default:
-            return Copy.HomeView.stop
-        }
+        state == .stopped ? Copy.HomeView.start : Copy.HomeView.stop
     }
     
     func toggleExercise() {
-        switch state {
-        case .stopped:
-            startExercise()
-        default:
-            stopExercise()
-        }
+        state == .stopped ? startExercise() : stopExercise()
     }
     
 }
@@ -104,15 +80,10 @@ private extension HomeViewModel {
     
     func stopExercise() {
         state = .stopped
-        resetStateChangeTimer()
+        stateChangeTimer = nil
         resetInitialConditions()
     }
-    
-    func resetStateChangeTimer() {
-        stateChangeTimer?.invalidate()
-        stateChangeTimer = nil
-    }
-    
+
     func resetInitialConditions() {
         isFirstExerciseCountDecrement = true
     }
@@ -129,7 +100,7 @@ private extension HomeViewModel {
     @objc func handleStateIncrementation() {
         guard state != .stopped else { return }
         
-        setNextState()
+        state = state.nextState
         handleExerciseCount()
         
         guard state != .stopped else { return }
@@ -137,15 +108,7 @@ private extension HomeViewModel {
         scheduleStateChange()
     }
     
-    func setNextState() {
-        if let nextState = BreathingState(rawValue: state.rawValue + 1),
-           nextState != .initial {
-            state = nextState
-        } else {
-            state = .inhaling
-        }
-    }
-    
+    // TODO: Test HomeViewModel state changes, circles disappear correctly etc.
     func handleExerciseCount() {
         guard repeatMode == .finite else { return }
         

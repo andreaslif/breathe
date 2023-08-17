@@ -31,13 +31,19 @@ struct ConfigView: View {
                         .bold()
                         .foregroundStyle(Color.grayOne)
                     Stepper("", value: $numberOfRepetitions)
-                        .opacity(repeatMode == .finite ? 1 : 0)
+                        .opacity(repeatMode.repeatModeOpacity)
                 }
                 .frame(maxWidth: .infinity)
                 Text(Copy.ConfigView.times)
-                    .opacity(repeatMode == .finite ? 1 : 0)
+                    .opacity(repeatMode.repeatModeOpacity)
             }
         }
+    }
+}
+
+private extension RepeatMode {
+    var repeatModeOpacity: Double {
+        self == .finite ? 1 : 0
     }
 }
 
