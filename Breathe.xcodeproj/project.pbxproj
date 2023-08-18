@@ -24,6 +24,7 @@
 		E1AE15742A8BA895002AFC23 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE15732A8BA895002AFC23 /* HomeViewModelTests.swift */; };
 		E1AE157E2A8BA895002AFC23 /* BreatheUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE157D2A8BA895002AFC23 /* BreatheUITests.swift */; };
 		E1AE15802A8BA895002AFC23 /* BreatheUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE157F2A8BA895002AFC23 /* BreatheUITestsLaunchTests.swift */; };
+		E1FF68B42A8F888700AFF6F4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E1FF68B32A8F888700AFF6F4 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E1AE15792A8BA895002AFC23 /* BreatheUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreatheUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AE157D2A8BA895002AFC23 /* BreatheUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheUITests.swift; sourceTree = "<group>"; };
 		E1AE157F2A8BA895002AFC23 /* BreatheUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E1FF68B32A8F888700AFF6F4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			children = (
 				E1AE15612A8BA894002AFC23 /* BreatheApp.swift */,
 				E1AE15672A8BA895002AFC23 /* Breathe.entitlements */,
+				E1FF68B32A8F888700AFF6F4 /* README.md */,
 				E187DA3B2A8BA99000400A5E /* swiftgen.yml */,
 				E1AE158C2A8BA90B002AFC23 /* Presentation */,
 				E1AE15682A8BA895002AFC23 /* Preview Content */,
@@ -325,6 +328,7 @@
 			files = (
 				E1AE156A2A8BA895002AFC23 /* Preview Assets.xcassets in Resources */,
 				E187DA412A8BAAAC00400A5E /* Localizable.strings in Resources */,
+				E1FF68B42A8F888700AFF6F4 /* README.md in Resources */,
 				E1AE15662A8BA895002AFC23 /* Assets.xcassets in Resources */,
 				E187DA3C2A8BA99000400A5E /* swiftgen.yml in Resources */,
 			);
