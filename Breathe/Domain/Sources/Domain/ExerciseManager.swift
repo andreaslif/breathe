@@ -20,7 +20,7 @@ class ExerciseManager: ObservableObject {
     /// while also closing the `BubbleView`at the correct time when the last exercise finishes,
     /// we use this flag to skip the first decrementation of the `exerciseCount`.
     private var isFirstExerciseCountDecrement = true
-    private var stateChangeTimer: Timer? {
+    var stateChangeTimer: Timer? {
         willSet { stateChangeTimer?.invalidate() }
     }
     

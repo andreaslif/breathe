@@ -27,5 +27,5 @@ final class BreathingStateTests: XCTestCase {
             XCTAssertTrue(states[i].duration == expectedDurations[i])
         }
     }
-    
+
 }
