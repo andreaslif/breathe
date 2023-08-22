@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E10029552A8EA6DD00B7141A /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = Breathe/Domain; sourceTree = "<group>"; };
+		E10029552A8EA6DD00B7141A /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		E182D83B2A8C18EA00EBE108 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		E182D83E2A8CF3A200EBE108 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		E182D8462A8D658700EBE108 /* CircularPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularPatternView.swift; sourceTree = "<group>"; };
@@ -131,7 +131,6 @@
 		E1AE15552A8BA894002AFC23 = {
 			isa = PBXGroup;
 			children = (
-				E10029552A8EA6DD00B7141A /* Domain */,
 				E1AE15602A8BA894002AFC23 /* Breathe */,
 				E1AE15722A8BA895002AFC23 /* BreatheTests */,
 				E1AE157C2A8BA895002AFC23 /* BreatheUITests */,
@@ -157,6 +156,7 @@
 				E1AE15672A8BA895002AFC23 /* Breathe.entitlements */,
 				E1FF68B32A8F888700AFF6F4 /* README.md */,
 				E187DA3B2A8BA99000400A5E /* swiftgen.yml */,
+				E10029552A8EA6DD00B7141A /* Domain */,
 				E1AE158C2A8BA90B002AFC23 /* Presentation */,
 				E1AE15682A8BA895002AFC23 /* Preview Content */,
 			);
