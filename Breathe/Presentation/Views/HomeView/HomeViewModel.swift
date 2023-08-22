@@ -65,14 +65,6 @@ class HomeViewModel: ObservableObject {
         
         subscribeToRepetitionCountUseCase.execute()
             .assign(to: &$repetitionCount)
-        
-        $numberOfRepetitions
-            .sink { self.setNumberOfRepetitionsUseCase.execute(with: $0) }
-            .store(in: &cancellables)
-        
-        $repeatMode
-            .sink { self.setRepeatModeUseCase.execute(with: $0) }
-            .store(in: &cancellables)
     }
     
     deinit {
@@ -82,8 +74,13 @@ class HomeViewModel: ObservableObject {
     
     func toggleExercise() {
         state == .stopped
-        ? startExerciseUseCase.execute()
+        ? startExtercise()
         : stopExerciseUseCase.execute()
     }
     
+    private func startExtercise() {
+        setNumberOfRepetitionsUseCase.execute(with: numberOfRepetitions)
+        setRepeatModeUseCase.execute(with: repeatMode)
+        startExerciseUseCase.execute()
+    }
 }
