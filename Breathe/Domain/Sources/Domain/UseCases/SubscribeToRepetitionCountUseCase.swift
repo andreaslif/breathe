@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 public struct SubscribeToRepetitionCountUseCase {
-    var exerciseManager: ExerciseManager = .shared
+    let exerciseManager: ExerciseManager = .shared
     
     public init() { }
     

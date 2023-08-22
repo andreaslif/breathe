@@ -8,7 +8,7 @@
 import Foundation
 
 public struct SetNumberOfRepetitionsUseCase {
-    var exerciseManager: ExerciseManager = .shared
+    let exerciseManager: ExerciseManager = .shared
     
     public init() {}
     

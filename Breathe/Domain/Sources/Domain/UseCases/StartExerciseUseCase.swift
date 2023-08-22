@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 public struct StartExerciseUseCase {
-    var exerciseManager: ExerciseManager = .shared
+    let exerciseManager: ExerciseManager = .shared
     
     public init() { }
     
