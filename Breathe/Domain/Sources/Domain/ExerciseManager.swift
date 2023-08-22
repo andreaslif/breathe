@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class ExerciseManager: ObservableObject {
+final class ExerciseManager: ObservableObject {
     static let shared = ExerciseManager()
     
     @Published var state: BreathingState = .stopped

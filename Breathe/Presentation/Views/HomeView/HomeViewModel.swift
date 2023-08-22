@@ -9,7 +9,7 @@ import Combine
 import Domain
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
+final class HomeViewModel: ObservableObject {
     @Published var state: BreathingState = .stopped
     @Published var repeatMode: RepeatMode = .finite
     @Published var repetitionCount: Int = 0
