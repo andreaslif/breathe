@@ -37,9 +37,8 @@ struct CircularPatternView: View {
     }
 }
 
-
 struct CircularPatternView_Previews: PreviewProvider {
     static var previews: some View {
-        CircularPatternView(totalSteps: 0, size: 300, numberOfStepsToShow: .constant(3))
+        CircularPatternView(totalSteps: 10, size: 300, numberOfStepsToShow: .constant(8))
     }
 }
